@@ -4,8 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.criteria.Predicate;
-import javax.swing.text.StringContent;
+
 
 /**
  * Created by Marina on 2/22/2016.
@@ -16,6 +15,7 @@ import javax.swing.text.StringContent;
 public class User {
 
     @Id
+    @Column(name = "username")
     private String username;
 
     @Column(name = "password")
