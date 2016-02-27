@@ -18,15 +18,14 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/login")
     public String login() {
-
-        User user = new User();
-        user.setEnabled(true);
-        user.setPassword("12345678");
-        user.setUsername("artyom");
-        userService.saveUser(user);
-
         return "login";
     }
+
+    @RequestMapping(value = "/logout")
+    public String logout() {
+        return "logout";
+    }
+
 }
