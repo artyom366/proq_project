@@ -11,6 +11,6 @@
     <title></title>
 </head>
 <body>
-main
+<H1>hello, ${model.username.user}</H1>
 </body>
 </html>
