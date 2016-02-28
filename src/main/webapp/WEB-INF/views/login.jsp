@@ -1,9 +1,11 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
@@ -53,6 +55,11 @@
                 <button type="submit" class="btn btn-success">Sign in</button>
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="?lang=en">EN</a></li>
+                <li><a href="?lang=lv">LV</a></li>
+                <li><a href="?lang=ru">RU</a></li>
+            </ul>
         </div><!--/.navbar-collapse -->
     </div>
 </nav>
@@ -69,7 +76,7 @@
     </c:if>
 
     <div class="container">
-        <h1>Welcome!</h1>
+        <h1><spring:message code="welcome.header"/></h1>
         <p>This is the lightweight and yet robust document storage archive to back up your business needs.</p>
         <p><a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/register" role="button">Register Account &raquo;</a></p>
     </div>
