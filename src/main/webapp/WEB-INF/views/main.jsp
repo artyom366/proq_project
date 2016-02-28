@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: Artyom
@@ -12,6 +14,6 @@
     <title></title>
 </head>
 <body>
-<H1>hello, <c:out value="${username}"/></H1>
+<H1><spring:message code="hello"/>, <c:out value="${username}"/></H1>
 </body>
 </html>

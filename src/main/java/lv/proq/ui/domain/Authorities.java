@@ -1,9 +1,6 @@
 package lv.proq.ui.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by Artyom on 2/27/2016.
@@ -14,17 +11,29 @@ import javax.persistence.Table;
 public class Authorities {
 
     @Id
-    @Column(name = "username")
-    private String username;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @OneToOne
+    @JoinColumn(name = "username")
+    private User username;
 
     @Column(name = "authority")
     private String authority;
 
-    public String getUsername() {
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public User getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
+    public void setUsername(User username) {
         this.username = username;
     }
 

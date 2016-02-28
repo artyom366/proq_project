@@ -18,6 +18,15 @@ public class User {
     @Column(name = "username")
     private String username;
 
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "middle_name")
+    private String middleName;
+
+    @Column(name = "surname")
+    private String surname;
+
     @Column(name = "password")
     private String password;
 
@@ -30,6 +39,30 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String getPassword() {
@@ -47,5 +80,4 @@ public class User {
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
     }
-
 }
