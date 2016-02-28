@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Artyom
@@ -11,6 +12,6 @@
     <title></title>
 </head>
 <body>
-<H1>hello, ${model.username.user}</H1>
+<H1>hello, <c:out value="${username}"/></H1>
 </body>
 </html>
