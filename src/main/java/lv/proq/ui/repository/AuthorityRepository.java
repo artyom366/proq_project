@@ -1,14 +1,13 @@
 package lv.proq.ui.repository;
 
+import lv.proq.ui.domain.user.Authority;
 import lv.proq.ui.domain.user.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-/**
- * Created by Marina on 2/22/2016.
- */
+import java.util.Iterator;
 
 @Repository
-public interface UserRepository extends CrudRepository<User, String>  {
-
+public interface AuthorityRepository extends CrudRepository<Authority, Long> {
+    Authority findAuthorityByUser(User user);
 }

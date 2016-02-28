@@ -1,3 +1,4 @@
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: Artyom
@@ -42,6 +43,11 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="?lang=en">EN</a></li>
+                <li><a href="?lang=lv">LV</a></li>
+                <li><a href="?lang=ru">RU</a></li>
+            </ul>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
@@ -56,7 +62,7 @@
 
 <div class="container col-md-3 col-md-offset-4">
 
-    <form>
+    <sf:form method="POST">
         <div class="form-group" >
             <label for="name">Name</label>
             <input type="text" class="form-control" id="name" placeholder="Name">
@@ -78,6 +84,10 @@
             <input type="text" class="form-control" id="web-site" placeholder="WEb site">
         </div>
         <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Password">
+        </div>
+        <div class="form-group">
             <label for="repeat-password">Repeat Password</label>
             <input type="password" class="form-control" id="repeat-password" placeholder="Password">
         </div>
@@ -90,8 +100,7 @@
             </select>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
-    </form>
-
+    </sf:form>
 </div> <!-- /container -->
 
 

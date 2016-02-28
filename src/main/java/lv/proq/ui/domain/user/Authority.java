@@ -1,4 +1,4 @@
-package lv.proq.ui.domain;
+package lv.proq.ui.domain.user;
 
 import javax.persistence.*;
 
@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "authorities")
-public class Authorities {
+public class Authority {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +20,14 @@ public class Authorities {
 
     @Column(name = "authority")
     private String authority;
+
+    public Authority() {
+    }
+
+    public Authority(User username, String authority) {
+        this.username = username;
+        this.authority = authority;
+    }
 
     public Long getId() {
         return id;
