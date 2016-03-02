@@ -9,5 +9,5 @@ import java.util.Iterator;
 
 @Repository
 public interface AuthorityRepository extends CrudRepository<Authority, Long> {
-    Authority findAuthorityByUser(User user);
+    Authority findAuthorityByUsername(User user);
 }

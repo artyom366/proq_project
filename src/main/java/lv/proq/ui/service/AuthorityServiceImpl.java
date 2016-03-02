@@ -14,7 +14,7 @@ public class AuthorityServiceImpl implements AuthorityService {
 
     @Override
     public boolean isExists(User user) {
-        Authority authority = authorityRepository.findAuthorityByUser(user);
+        Authority authority = authorityRepository.findAuthorityByUsername(user);
         return authority != null;
     }
 }

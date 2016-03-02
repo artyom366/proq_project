@@ -10,14 +10,12 @@ import javax.validation.constraints.Size;
  */
 public class TrialAccountDTO {
 
-    @NotBlank
     @Size(min = 6, max = 20)
     private String userName;
 
     @Email
     private String email;
 
-    @NotBlank
     private String phone;
 
     @NotBlank

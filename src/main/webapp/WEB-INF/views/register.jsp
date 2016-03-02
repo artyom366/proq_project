@@ -62,42 +62,49 @@
 
 <div class="container col-md-3 col-md-offset-4">
 
-    <sf:form method="POST">
+    <sf:form method="POST" action="${pageContext.request.contextPath}/register" modelAttribute="trialAccount">
         <div class="form-group" >
             <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" placeholder="Name">
+            <sf:input type="text" class="form-control" id="name" path="userName" placeholder="Name" required=""/>
+            <span class="label label-warning"><sf:errors path="userName"/></span>
         </div>
         <div class="form-group" >
             <label for="business-name">Business name</label>
-            <input type="text" class="form-control" id="business-name" placeholder="Business name">
+            <sf:input type="text" class="form-control" id="business-name" path="businessName" placeholder="Business name" />
+            <span class="label label-warning"><sf:errors path="businessName" cssClass="has-error" /></span>
         </div>
         <div class="form-group" >
             <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" placeholder="Email">
+            <sf:input type="email" class="form-control" id="email" path="email" placeholder="Email" />
+           <span class="label label-warning"><sf:errors path="email" cssClass="has-error" /></span>
         </div>
         <div class="form-group">
             <label for="phone">Phone</label>
-            <input type="text" class="form-control" id="phone" placeholder="Phone">
+            <sf:input type="text" class="form-control" id="phone" path="phone" placeholder="Phone" />
+            <span class="label label-warning"><sf:errors path="phone" cssClass="has-error" /></span>
         </div>
         <div class="form-group">
             <label for="phone">Web site</label>
-            <input type="text" class="form-control" id="web-site" placeholder="WEb site">
+            <sf:input type="text" class="form-control" id="web-site" path="webSite" placeholder="WEb site" />
+            <span class="label label-warning"><sf:errors path="webSite" cssClass="has-error" /></span>
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Password">
+            <sf:input type="password" class="form-control" id="password" path="password" placeholder="Password" />
+            <span class="label label-warning"><sf:errors path="password" cssClass="has-error" /></span>
         </div>
         <div class="form-group">
             <label for="repeat-password">Repeat Password</label>
-            <input type="password" class="form-control" id="repeat-password" placeholder="Password">
+            <span class="label label-warning"><input type="password" class="form-control" id="repeat-password" placeholder="Password"></span>
         </div>
         <div class="form-group">
             <label for="country">Country</label>
-            <select class="form-control" id="country">
+            <sf:select class="form-control" id="country" path="country">
                 <option>Latvia</option>
                 <option>Lithuania</option>
                 <option>Estonia</option>
-            </select>
+            </sf:select>
+            <span class="label label-warning"><sf:errors path="country" cssClass="has-error" /></span>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
     </sf:form>
