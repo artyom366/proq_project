@@ -11,10 +11,13 @@ import javax.persistence.*;
 public class UserPhone {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String phone;
+
+    public UserPhone() {
+    }
 
     public UserPhone(String phone) {
         this.phone = phone;

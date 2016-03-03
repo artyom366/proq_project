@@ -1,19 +1,16 @@
 package lv.proq.ui.transfer;
 
-import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-/**
- * Created by Artyom on 2/28/2016.
- */
 public class TrialAccountDTO {
 
     @Size(min = 6, max = 20)
     private String userName;
 
-    @Email
+    @Pattern(regexp=".+@.+\\..+")
     private String email;
 
     private String phone;
@@ -21,11 +18,9 @@ public class TrialAccountDTO {
     @NotBlank
     private String country;
 
-    @NotBlank
     @Size(min = 8, max = 20)
     private String password;
 
-    @NotBlank
     @Size(min = 1, max = 20)
     private String businessName;
 

@@ -71,31 +71,31 @@
         <div class="form-group" >
             <label for="business-name">Business name</label>
             <sf:input type="text" class="form-control" id="business-name" path="businessName" placeholder="Business name" />
-            <span class="label label-warning"><sf:errors path="businessName" cssClass="has-error" /></span>
+            <span class="label label-warning"><sf:errors path="businessName" /></span>
         </div>
         <div class="form-group" >
-            <label for="email">Email address</label>
-            <sf:input type="email" class="form-control" id="email" path="email" placeholder="Email" />
-           <span class="label label-warning"><sf:errors path="email" cssClass="has-error" /></span>
+            <label for="business-name">Email address</label>
+            <sf:input type="text" class="form-control" id="email" path="email" placeholder="Email" />
+            <span class="label label-warning"><sf:errors path="email" /></span>
         </div>
         <div class="form-group">
             <label for="phone">Phone</label>
             <sf:input type="text" class="form-control" id="phone" path="phone" placeholder="Phone" />
-            <span class="label label-warning"><sf:errors path="phone" cssClass="has-error" /></span>
+            <span class="label label-warning"><sf:errors path="phone" /></span>
         </div>
         <div class="form-group">
             <label for="phone">Web site</label>
             <sf:input type="text" class="form-control" id="web-site" path="webSite" placeholder="WEb site" />
-            <span class="label label-warning"><sf:errors path="webSite" cssClass="has-error" /></span>
+            <span class="label label-warning"><sf:errors path="webSite" /></span>
         </div>
         <div class="form-group">
             <label for="password">Password</label>
             <sf:input type="password" class="form-control" id="password" path="password" placeholder="Password" />
-            <span class="label label-warning"><sf:errors path="password" cssClass="has-error" /></span>
+            <span class="label label-warning"><sf:errors path="password" /></span>
         </div>
         <div class="form-group">
             <label for="repeat-password">Repeat Password</label>
-            <span class="label label-warning"><input type="password" class="form-control" id="repeat-password" placeholder="Password"></span>
+            <input type="password" class="form-control" id="repeat-password" placeholder="Password">
         </div>
         <div class="form-group">
             <label for="country">Country</label>
@@ -104,7 +104,7 @@
                 <option>Lithuania</option>
                 <option>Estonia</option>
             </sf:select>
-            <span class="label label-warning"><sf:errors path="country" cssClass="has-error" /></span>
+            <span class="label label-warning"><sf:errors path="country" /></span>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
     </sf:form>

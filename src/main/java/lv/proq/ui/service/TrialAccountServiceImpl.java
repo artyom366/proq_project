@@ -29,7 +29,7 @@ public class TrialAccountServiceImpl implements TrialAccountService {
         UserPhone userPhone = new UserPhone(trialAccountDTO.getPhone());
 
         user.setPassword(trialAccountDTO.getPassword());
-        user.setName(trialAccountDTO.getUserName());
+        user.setUsername(trialAccountDTO.getUserName());
         user.setEmails(Arrays.asList(userEmail));
         user.setPhones(Arrays.asList(userPhone));
 

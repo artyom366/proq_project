@@ -17,9 +17,6 @@ import sun.misc.Contended;
 
 import java.util.Locale;
 
-/**
- * Created by Artyom on 2/27/2016.
- */
 
 @Controller
 public class RegistrationController {
