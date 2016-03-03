@@ -8,6 +8,7 @@ import lv.proq.ui.errors.AuthorityExistsException;
 import lv.proq.ui.errors.UserExistsException;
 import lv.proq.ui.transfer.TrialAccountDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -24,11 +25,13 @@ public class TrialAccountServiceImpl implements TrialAccountService {
     @Override
     public void saveTrialAccountDetails(TrialAccountDTO trialAccountDTO, Locale locale) throws AuthorityExistsException, UserExistsException {
 
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+
         User user = new User();
         UserEmail userEmail = new UserEmail(trialAccountDTO.getEmail());
         UserPhone userPhone = new UserPhone(trialAccountDTO.getPhone());
 
-        user.setPassword(trialAccountDTO.getPassword());
+        user.setPassword(bCryptPasswordEncoder.encode(trialAccountDTO.getPassword()));
         user.setUsername(trialAccountDTO.getUserName());
         user.setEmails(Arrays.asList(userEmail));
         user.setPhones(Arrays.asList(userPhone));

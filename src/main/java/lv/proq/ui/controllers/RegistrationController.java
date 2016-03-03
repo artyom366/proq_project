@@ -2,10 +2,14 @@ package lv.proq.ui.controllers;
 
 import lv.proq.ui.errors.AuthorityExistsException;
 import lv.proq.ui.errors.UserExistsException;
+import lv.proq.ui.service.AuthService;
 import lv.proq.ui.service.TrialAccountService;
 import lv.proq.ui.service.UserService;
 import lv.proq.ui.transfer.TrialAccountDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,6 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import sun.misc.Contended;
+import sun.plugin.liveconnect.SecurityContextHelper;
 
 import java.util.Locale;
 
@@ -23,6 +28,9 @@ public class RegistrationController {
 
     @Autowired
     private TrialAccountService trialAccountService;
+
+    @Autowired
+    private AuthService authService;
 
 
     @RequestMapping(value = "register", method = RequestMethod.GET)
@@ -46,6 +54,9 @@ public class RegistrationController {
             e.printStackTrace();
         }
 
-        return "main";
+
+        authService.authorizeUser(account.getUserName(), account.getPassword());
+
+        return "redirect:/";
     }
 }
