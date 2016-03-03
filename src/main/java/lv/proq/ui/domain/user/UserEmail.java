@@ -10,18 +10,22 @@ import javax.persistence.*;
 @Table(name = "user_emails")
 public class UserEmail {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "email")
     private String email;
+
+    @JoinColumn(name = "userName")
+    private User userName;
 
     public UserEmail() {
     }
 
-    public UserEmail(String email) {
+    public UserEmail(String email, User user) {
         this.email = email;
+        this.userName = user;
     }
 
     public Long getId() {
@@ -38,5 +42,13 @@ public class UserEmail {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public User getUser() {
+        return userName;
+    }
+
+    public void setUser(User user) {
+        this.userName = user;
     }
 }

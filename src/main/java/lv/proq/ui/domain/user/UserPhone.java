@@ -14,13 +14,18 @@ public class UserPhone {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "phone")
     private String phone;
+
+    @JoinColumn(name = "user")
+    private User userName;
 
     public UserPhone() {
     }
 
-    public UserPhone(String phone) {
+    public UserPhone(String phone, User user) {
         this.phone = phone;
+        this.userName = user;
     }
 
     public Long getId() {
@@ -37,5 +42,13 @@ public class UserPhone {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public User getUser() {
+        return userName;
+    }
+
+    public void setUser(User user) {
+        this.userName = user;
     }
 }

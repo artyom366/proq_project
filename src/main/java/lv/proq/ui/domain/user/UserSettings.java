@@ -13,10 +13,24 @@ public class UserSettings {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "locale")
     private String locale;
 
     @OneToOne
     private Organization defaultOrganization;
+
+    @ManyToOne
+    @JoinColumn(name = "userName")
+    private User userName;
+
+    public UserSettings() {
+    }
+
+    public UserSettings(String locale, Organization defaultOrganization, User userName) {
+        this.locale = locale;
+        this.defaultOrganization = defaultOrganization;
+        this.userName = userName;
+    }
 
     public Long getId() {
         return id;
@@ -40,5 +54,13 @@ public class UserSettings {
 
     public void setDefaultOrganization(Organization defaultOrganization) {
         this.defaultOrganization = defaultOrganization;
+    }
+
+    public User getUserName() {
+        return userName;
+    }
+
+    public void setUserName(User userName) {
+        this.userName = userName;
     }
 }
