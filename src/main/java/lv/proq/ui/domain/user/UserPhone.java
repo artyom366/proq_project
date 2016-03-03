@@ -17,7 +17,8 @@ public class UserPhone {
     @Column(name = "phone")
     private String phone;
 
-    @JoinColumn(name = "user")
+    @ManyToOne
+    @JoinColumn(name = "username")
     private User userName;
 
     public UserPhone() {

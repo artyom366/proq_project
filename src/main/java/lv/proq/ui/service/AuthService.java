@@ -5,6 +5,6 @@ package lv.proq.ui.service;
  */
 public interface AuthService {
     void authorizeUser(String userName, String password);
-    String getAnonymousUser();
-    String getCurrentUser();
+    String getAnonymous();
+    String getCurrent();
 }

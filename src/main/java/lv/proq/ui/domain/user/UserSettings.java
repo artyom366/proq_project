@@ -20,7 +20,7 @@ public class UserSettings {
     private Organization defaultOrganization;
 
     @ManyToOne
-    @JoinColumn(name = "userName")
+    @JoinColumn(name = "username")
     private User userName;
 
     public UserSettings() {

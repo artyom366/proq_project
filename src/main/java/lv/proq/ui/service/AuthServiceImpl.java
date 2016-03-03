@@ -35,12 +35,12 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public String getAnonymousUser() {
+    public String getAnonymous() {
         return String.valueOf(SecurityContextHolder.getContext().getAuthentication().getPrincipal());
     }
 
     @Override
-    public String getCurrentUser() {
+    public String getCurrent() {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return user.getUsername();
     }

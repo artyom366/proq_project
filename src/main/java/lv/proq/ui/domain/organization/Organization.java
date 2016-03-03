@@ -16,11 +16,26 @@ public class Organization {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "name", unique = true)
     private String name;
+
+    @Column(name = "website")
+    private String webSite;
+
+    @Column(name = "registration_number", unique = true)
     private String registrationNumber;
+
+    @Column(name = "vat_number", unique = true)
     private String vatNumber;
+
+    @Column(name = "iln", unique = true)
     private String iln;
+
+    @Column(name = "default_tax_rate")
     private Float defaultTaxRate;
+
+    @Column(name = "enabled")
     private Boolean enabled;
 
     @OneToMany(cascade = CascadeType.ALL)
@@ -55,6 +70,14 @@ public class Organization {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getWebSite() {
+        return webSite;
+    }
+
+    public void setWebSite(String webSite) {
+        this.webSite = webSite;
     }
 
     public String getRegistrationNumber() {

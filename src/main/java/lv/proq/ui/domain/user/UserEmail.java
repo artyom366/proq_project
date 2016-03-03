@@ -17,7 +17,8 @@ public class UserEmail {
     @Column(name = "email")
     private String email;
 
-    @JoinColumn(name = "userName")
+    @ManyToOne
+    @JoinColumn(name = "username")
     private User userName;
 
     public UserEmail() {

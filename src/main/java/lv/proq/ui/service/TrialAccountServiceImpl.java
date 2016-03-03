@@ -8,6 +8,7 @@ import lv.proq.ui.domain.user.UserEmail;
 import lv.proq.ui.domain.user.UserPhone;
 import lv.proq.ui.domain.user.UserSettings;
 import lv.proq.ui.errors.AuthorityExistsException;
+import lv.proq.ui.errors.OrganizationNameExistsException;
 import lv.proq.ui.errors.UserExistsException;
 import lv.proq.ui.transfer.TrialAccountDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +26,11 @@ public class TrialAccountServiceImpl implements TrialAccountService {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private OrganizationService organizationService;
+
     @Override
-    public void saveTrialAccountDetails(TrialAccountDTO trialAccountDTO, Locale locale) throws AuthorityExistsException, UserExistsException {
+    public void saveTrialAccountDetails(TrialAccountDTO trialAccountDTO, Locale locale) throws AuthorityExistsException, UserExistsException, OrganizationNameExistsException {
 
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
@@ -41,23 +45,24 @@ public class TrialAccountServiceImpl implements TrialAccountService {
         address.setCountry(trialAccountDTO.getCountry());
 
         organization.setAddresses(Arrays.asList(address));
+        organization.setWebSite(trialAccountDTO.getWebSite());
         organization.setOrgSettings(orgSettings);
 
         User user = new User();
         UserEmail userEmail = new UserEmail(trialAccountDTO.getEmail(), user);
         UserPhone userPhone = new UserPhone(trialAccountDTO.getPhone(), user);
-        //UserSettings userSettings = new UserSettings(locale., organization, user);
+        UserSettings userSettings = new UserSettings(locale.getLanguage(), organization, user);
 
         user.setPassword(bCryptPasswordEncoder.encode(trialAccountDTO.getPassword()));
         user.setUsername(trialAccountDTO.getUserName());
         user.setEmails(Arrays.asList(userEmail));
         user.setPhones(Arrays.asList(userPhone));
+        user.setUserSettings(userSettings);
 
+        organization.setUsers(Arrays.asList(user));
 
-
-
-        userService.saveUser(user);
-
+        organizationService.saveTrial(organization);
+        //userService.saveUser(user);
 
     }
 }
