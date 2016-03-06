@@ -60,6 +60,8 @@ public class TrialAccountServiceImpl implements TrialAccountService {
         user.setAuthority(authority);
 
         organization.setUsers(Arrays.asList(user));
+
+        //save a user and everything else will be saved on cascade
         userService.saveUser(user);
     }
 }

@@ -1,9 +1,6 @@
 package lv.proq.ui.service;
 
-import lv.proq.ui.conatants.UserRole;
-import lv.proq.ui.domain.user.Authority;
 import lv.proq.ui.domain.user.User;
-import lv.proq.ui.errors.AuthorityExistsException;
 import lv.proq.ui.errors.UserExistsException;
 import lv.proq.ui.repository.AuthorityRepository;
 import lv.proq.ui.repository.UserRepository;
@@ -17,17 +14,11 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private AuthorityRepository authorityRepository;
-
-    @Autowired
-    private AuthorityService authorityService;
-
     @Override
     @Transactional
-    public void saveUser(User user) throws AuthorityExistsException, UserExistsException {
+    public void saveUser(User user) throws UserExistsException {
         boolean userExists = isExists(user);
-        if (!userExists){
+        if (!userExists) {
             user.setEnabled(true);
             userRepository.save(user);
         } else {
@@ -37,21 +28,23 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void savePowerUser(User user) {
+    public void savePowerUser(User user) throws UserExistsException {
         if (!isExists(user)) {
             user.setEnabled(true);
             userRepository.save(user);
-            authorityRepository.save(new Authority(user, UserRole.ROLE_POWER_USER.toString()));
+        } else {
+            throw new UserExistsException();
         }
     }
 
     @Override
     @Transactional
-    public void saveAdminUser(User user) {
+    public void saveAdminUser(User user) throws UserExistsException {
         if (!isExists(user)) {
             user.setEnabled(true);
             userRepository.save(user);
-            authorityRepository.save(new Authority(user, UserRole.ROLE_ADMIN.toString()));
+        } else {
+            throw new UserExistsException();
         }
     }
 
@@ -60,6 +53,10 @@ public class UserServiceImpl implements UserService {
         return userRepository.exists(user.getUsername());
     }
 
+    @Override
+    public User findOne(String username) {
+        return userRepository.findOne(username);
+    }
 
 
 }

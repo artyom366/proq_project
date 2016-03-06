@@ -33,10 +33,10 @@ public class User {
     @Column(name = "enabled")
     private Boolean enabled;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<UserEmail> emails;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<UserPhone> phones;
 
     @OneToOne(cascade = CascadeType.ALL)
