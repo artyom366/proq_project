@@ -41,11 +41,30 @@
                 <li><a href="?lang=en">EN</a></li>
                 <li><a href="?lang=lv">LV</a></li>
                 <li><a href="?lang=ru">RU</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><c:out value="${username}"/><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Organization</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><c:out value="${company}"/><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Company 1</a></li>
+                        <li><a href="#">Company 2</a></li>
+                        <li><a href="#">Company 3</a></li>
+                    </ul>
+                </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><spring:message code="hello"/>, <c:out value="${username}"/></li>
-                <li><c:out value="${company}"/></li>
-            </ul>
+
+
+            <%--<ul class="nav navbar-nav navbar-right">--%>
+                <%--<li><spring:message code="hello"/>, <c:out value="${username}"/></li>--%>
+                <%--<li><c:out value="${company}"/></li>--%>
+            <%--</ul>--%>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
@@ -58,5 +77,12 @@
 </div>
 
 <%--<H1><spring:message code="hello"/>, <c:out value="${username}"/></H1>--%>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="${pageContext.request.contextPath}/stat/js/jquery-2.2.1.min.js"><\/script>')</script>
+<script src="${pageContext.request.contextPath}/stat/js/bootstrap.min.js"></script>
 </body>
 </html>
