@@ -42,6 +42,9 @@ public class User {
     @OneToOne(cascade = CascadeType.ALL)
     private UserSettings userSettings;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    private Authority authority;
+
     public String getUsername() {
         return username;
     }
@@ -112,5 +115,13 @@ public class User {
 
     public void setUserSettings(UserSettings userSettings) {
         this.userSettings = userSettings;
+    }
+
+    public Authority getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(Authority authority) {
+        this.authority = authority;
     }
 }

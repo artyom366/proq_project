@@ -26,19 +26,10 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void saveUser(User user) throws AuthorityExistsException, UserExistsException {
-
         boolean userExists = isExists(user);
         if (!userExists){
             user.setEnabled(true);
             userRepository.save(user);
-
-            boolean authorityExists = authorityService.isExists(user);
-            if (!authorityExists) {
-                authorityRepository.save(new Authority(user, UserRole.ROLE_USER.toString()));
-            } else {
-                throw new AuthorityExistsException();
-            }
-
         } else {
             throw new UserExistsException();
         }

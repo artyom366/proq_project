@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface OrganizationRepository extends CrudRepository<Organization, Long> {
-    Organization findOrganizationByName(Organization organization);
+    Organization findOrganizationByName(String orgName);
 }

@@ -18,7 +18,7 @@ public class TrialAccountDTO {
     @NotBlank
     private String country;
 
-    @Size(min = 8, max = 20)
+    @Size(min = 1, max = 20)
     private String password;
 
     @Size(min = 1, max = 20)

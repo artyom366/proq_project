@@ -14,9 +14,25 @@ public class OrgSettings {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "is_trial_account")
     private Boolean isTrialAccount;
+
+    @Column(name = "is_archive_enabled")
     private Boolean isArchiveEnabled;
+
+    @Column(name = "tab_limit")
     private Integer tabLimit;
+
+    @ManyToOne
+    @JoinColumn(name = "organization")
+    private Organization organization;
+
+    public OrgSettings() {
+    }
+
+    public OrgSettings(Organization organization) {
+        this.organization = organization;
+    }
 
     public Long getId() {
         return id;
@@ -48,5 +64,13 @@ public class OrgSettings {
 
     public void setTabLimit(Integer tabLimit) {
         this.tabLimit = tabLimit;
+    }
+
+    public Organization getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
     }
 }

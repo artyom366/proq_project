@@ -16,7 +16,7 @@ public class UserSettings {
     @Column(name = "locale")
     private String locale;
 
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     private Organization defaultOrganization;
 
     @ManyToOne

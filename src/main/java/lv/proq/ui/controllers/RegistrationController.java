@@ -1,6 +1,7 @@
 package lv.proq.ui.controllers;
 
 import lv.proq.ui.errors.AuthorityExistsException;
+import lv.proq.ui.errors.OrganizationNameExistsException;
 import lv.proq.ui.errors.UserExistsException;
 import lv.proq.ui.service.AuthService;
 import lv.proq.ui.service.TrialAccountService;
@@ -42,19 +43,13 @@ public class RegistrationController {
     }
 
     @RequestMapping(value = "register", method = RequestMethod.POST)
-    public String doRegister(@Validated @ModelAttribute("trialAccount") TrialAccountDTO account, BindingResult result, Locale locale) {
+    public String doRegister(@Validated @ModelAttribute("trialAccount") TrialAccountDTO account, BindingResult result, Locale locale) throws AuthorityExistsException, OrganizationNameExistsException, UserExistsException {
 
         if (result.hasErrors()) {
             return "register";
         }
 
-        try {
-            trialAccountService.saveTrialAccountDetails(account, locale);
-        } catch (AuthorityExistsException | UserExistsException e) {
-            e.printStackTrace();
-        }
-
-
+        trialAccountService.saveTrialAccountDetails(account, locale);
         authService.authorizeUser(account.getUserName(), account.getPassword());
 
         return "redirect:/";

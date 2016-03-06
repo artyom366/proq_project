@@ -24,7 +24,7 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Override
     public boolean isExists(Organization organization) {
         Organization entry
-                = organizationRepository.findOrganizationByName(organization);
+                = organizationRepository.findOrganizationByName(organization.getName());
 
         if (entry == null) {
             return false;

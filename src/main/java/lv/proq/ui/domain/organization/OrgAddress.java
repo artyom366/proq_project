@@ -14,13 +14,37 @@ public class OrgAddress {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "county")
     private String country;
+
+    @Column(name = "country_code")
     private String countryCode;
+
+    @Column(name = "city")
     private String city;
+
+    @Column(name = "street")
     private String street;
+
+    @Column(name = "house_number")
     private String houseNumber;
+
+    @Column(name = "office_number")
     private String officeNumber;
+
+    @Column(name = "postal_code")
     private String postalCode;
+
+    @ManyToOne
+    @JoinColumn(name = "organization")
+    private Organization organization;
+
+    public OrgAddress() {
+    }
+
+    public OrgAddress(Organization organization) {
+        this.organization = organization;
+    }
 
     public Long getId() {
         return id;
@@ -84,5 +108,13 @@ public class OrgAddress {
 
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
+    }
+
+    public Organization getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
     }
 }

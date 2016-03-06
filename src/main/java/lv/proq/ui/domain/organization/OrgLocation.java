@@ -15,19 +15,47 @@ public class OrgLocation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "iln")
     private String iln;
+
+    @Column(name = "belong_to")
     private belongTo belongTo;
+
+    @Column(name = "county")
     private String country;
+
+    @Column(name = "country_code")
     private String countryCode;
+
+    @Column(name = "city")
     private String city;
+
+    @Column(name = "street")
     private String street;
+
+    @Column(name = "house_number")
     private String houseNumber;
+
+    @Column(name = "office_number")
     private String officeNumber;
+
+    @Column(name = "postal_code")
     private String postalCode;
+
+    @ManyToOne
+    @JoinColumn(name = "organization")
+    private Organization organization;
 
     private enum belongTo {
         SELF,
         PARTNER
+    }
+
+    public OrgLocation() {
+    }
+
+    public OrgLocation(Organization organization) {
+        this.organization = organization;
     }
 
     public Long getId() {
@@ -108,5 +136,13 @@ public class OrgLocation {
 
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
+    }
+
+    public Organization getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
     }
 }
