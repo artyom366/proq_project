@@ -1,10 +1,13 @@
 package lv.proq.ui.service;
 
 import lv.proq.ui.domain.organization.Organization;
+import lv.proq.ui.domain.user.User;
 import lv.proq.ui.errors.OrganizationNameExistsException;
 import lv.proq.ui.repository.OrganizationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class OrganizationServiceImpl implements OrganizationService {
@@ -31,5 +34,10 @@ public class OrganizationServiceImpl implements OrganizationService {
         }
 
         return true;
+    }
+
+    @Override
+    public List<Organization> findAllUsersByUsers(User user) {
+        return organizationRepository.findAllUsersByUsers(user);
     }
 }

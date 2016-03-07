@@ -1,10 +1,14 @@
 package lv.proq.ui.repository;
 
 import lv.proq.ui.domain.organization.Organization;
+import lv.proq.ui.domain.user.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public interface OrganizationRepository extends CrudRepository<Organization, Long> {
     Organization findOrganizationByName(String orgName);
+    List<Organization> findAllUsersByUsers(User user);
 }

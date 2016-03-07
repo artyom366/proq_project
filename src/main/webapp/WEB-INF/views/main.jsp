@@ -38,11 +38,8 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="?lang=en">EN</a></li>
-                <li><a href="?lang=lv">LV</a></li>
-                <li><a href="?lang=ru">RU</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><c:out value="${username}"/><span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><c:out value="${username} "/><span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Profile</a></li>
                         <li><a href="#">Organization</a></li>
@@ -51,13 +48,16 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><c:out value="${company}"/><span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><c:out value="${company} "/><span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Company 1</a></li>
                         <li><a href="#">Company 2</a></li>
                         <li><a href="#">Company 3</a></li>
                     </ul>
                 </li>
+                <li><a href="?lang=en">EN</a></li>
+                <li><a href="?lang=lv">LV</a></li>
+                <li><a href="?lang=ru">RU</a></li>
             </ul>
 
 

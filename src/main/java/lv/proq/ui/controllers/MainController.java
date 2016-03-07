@@ -1,7 +1,9 @@
 package lv.proq.ui.controllers;
 
+import lv.proq.ui.domain.organization.Organization;
 import lv.proq.ui.domain.user.User;
 import lv.proq.ui.domain.user.UserSettings;
+import lv.proq.ui.service.OrganizationService;
 import lv.proq.ui.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,8 @@ import org.springframework.web.servlet.LocaleResolver;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.security.Principal;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Locale;
 
 /**
@@ -24,6 +28,8 @@ public class MainController {
     @Autowired
     private LocaleResolver localeResolver;
 
+    @Autowired
+    private OrganizationService organizationService;
 
     @Autowired
     private UserService userService;
@@ -32,10 +38,26 @@ public class MainController {
     public String main(Model model, Principal principal, HttpServletRequest request, HttpServletResponse response) {
 
         User user = userService.findOne(principal.getName());
+        if (user == null) {
+            //todo error
+        }
+
+        Organization userDefaultOrganization = user.getUserSettings().getDefaultOrganization();
+        if (userDefaultOrganization == null) {
+            //todo error
+        }
+
+        List<Organization> userOrganizations = organizationService.findAllUsersByUsers(user);
+        if (userOrganizations == null) {
+            //todo error
+        } else {
+            userOrganizations.remove(userDefaultOrganization);
+        }
 
         localeResolver.setLocale(request, response, new Locale(user.getUserSettings().getLocale()));
         model.addAttribute("username", user.getUsername());
-        model.addAttribute("company", user.getUserSettings().getDefaultOrganization().getName());
+        model.addAttribute("default-company", userDefaultOrganization);
+        model.addAttribute("all-companies", userOrganizations);
 
         return "main";
     }
