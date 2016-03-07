@@ -1,6 +1,7 @@
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -47,14 +48,23 @@
                         <li><a href="#">Logout</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><c:out value="${company} "/><span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Company 1</a></li>
-                        <li><a href="#">Company 2</a></li>
-                        <li><a href="#">Company 3</a></li>
-                    </ul>
-                </li>
+
+                <c:choose>
+                    <c:when test="${fn:length(allorganizations) gt 0}">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><c:out value="${defaultorganization} "/><span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <c:forEach items="${allorganizations}" var="organization">
+                                    <li><a href="#">organization.name</a></li>
+                                </c:forEach>
+                            </ul>
+                        </li>
+                    </c:when>
+                    <c:otherwise>
+                        <p class="navbar-text"><c:out value="${defaultorganization} "/></p
+                    </c:otherwise>
+                </c:choose>
+
                 <li><a href="?lang=en">EN</a></li>
                 <li><a href="?lang=lv">LV</a></li>
                 <li><a href="?lang=ru">RU</a></li>
@@ -62,8 +72,8 @@
 
 
             <%--<ul class="nav navbar-nav navbar-right">--%>
-                <%--<li><spring:message code="hello"/>, <c:out value="${username}"/></li>--%>
-                <%--<li><c:out value="${company}"/></li>--%>
+            <%--<li><spring:message code="hello"/>, <c:out value="${username}"/></li>--%>
+            <%--<li><c:out value="${company}"/></li>--%>
             <%--</ul>--%>
         </div><!--/.nav-collapse -->
     </div>

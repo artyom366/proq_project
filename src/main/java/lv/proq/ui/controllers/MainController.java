@@ -56,8 +56,8 @@ public class MainController {
 
         localeResolver.setLocale(request, response, new Locale(user.getUserSettings().getLocale()));
         model.addAttribute("username", user.getUsername());
-        model.addAttribute("default-company", userDefaultOrganization);
-        model.addAttribute("all-companies", userOrganizations);
+        model.addAttribute("defaultorganization", userDefaultOrganization.getName());
+        model.addAttribute("allorganizations", userOrganizations);
 
         return "main";
     }
