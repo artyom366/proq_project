@@ -9,8 +9,14 @@ import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationExceptio
 public class ErrorHandler {
 
     @ExceptionHandler(MySQLIntegrityConstraintViolationException.class)
-    public String handleDataBaseConstraintViolation(MySQLIntegrityConstraintViolationException e, Model model) {
+    public String handleDataBaseConstraintViolation(MySQLIntegrityConstraintViolationException e) {
+        e.fillInStackTrace();
+        return "error";
+    }
 
+    @ExceptionHandler(Exception.class)
+    public String handleAllErrors(Exception e) {
+        e.printStackTrace();
         return "error";
     }
 }

@@ -14,10 +14,11 @@
     <meta name="author" content="">
     <link rel="icon" href="${pageContext.request.contextPath}/stat/images/favicon.ico">
 
-    <title>Starter Template for Bootstrap</title>
+    <title>Proq</title>
 
     <!-- Bootstrap core CSS -->
     <link href="${pageContext.request.contextPath}/stat/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/stat/css/custom.css" rel="stylesheet">
 </head>
 
 <body>
@@ -34,7 +35,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -74,34 +75,13 @@
 
 <div class="container-fluid">
     <div class="row">
-        <%--<div class="col-sm-3 col-md-2 sidebar">--%>
-            <%--<ul class="nav nav-sidebar">--%>
-                <%--<li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>--%>
-                <%--<li><a href="#">Documents</a></li>--%>
-                <%--<li><a href="#">Analytics</a></li>--%>
-                <%--<li><a href="#">Export</a></li>--%>
-            <%--</ul>--%>
-            <%--<ul class="nav nav-sidebar">--%>
-                <%--<li><a href="">Nav item</a></li>--%>
-                <%--<li><a href="">Nav item again</a></li>--%>
-                <%--<li><a href="">One more nav</a></li>--%>
-                <%--<li><a href="">Another nav item</a></li>--%>
-                <%--<li><a href="">More navigation</a></li>--%>
-            <%--</ul>--%>
-            <%--<ul class="nav nav-sidebar">--%>
-                <%--<li><a href="">Nav item again</a></li>--%>
-                <%--<li><a href="">One more nav</a></li>--%>
-                <%--<li><a href="">Another nav item</a></li>--%>
-            <%--</ul>--%>
-        <%--</div>--%>
-
             <div class="col-sm-3 col-md-2">
                 <div class="panel-group" id="accordion">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-folder-close">
-                            </span>Content</a>
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-th-list">
+                            </span> Documents</a>
                             </h4>
                         </div>
                         <div id="collapseOne" class="panel-collapse collapse in">
@@ -109,25 +89,25 @@
                                 <table class="table">
                                     <tr>
                                         <td>
-                                            <span class="glyphicon glyphicon-pencil text-primary"></span><a href="http://www.jquery2dotnet.com">Articles</a>
+                                            <a href="#">Filter</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <span class="glyphicon glyphicon-flash text-success"></span><a href="http://www.jquery2dotnet.com">News</a>
+                                           <a href="#">Archive</a>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="glyphicon glyphicon-file text-info"></span><a href="http://www.jquery2dotnet.com">Newsletters</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="glyphicon glyphicon-comment text-success"></span><a href="http://www.jquery2dotnet.com">Comments</a>
-                                            <span class="badge">42</span>
-                                        </td>
-                                    </tr>
+                                    <%--<tr>--%>
+                                        <%--<td>--%>
+                                            <%--<span class="glyphicon glyphicon-file text-info"></span><a href="#">Newsletters</a>--%>
+                                        <%--</td>--%>
+                                    <%--</tr>--%>
+                                    <%--<tr>--%>
+                                        <%--<td>--%>
+                                            <%--<span class="glyphicon glyphicon-comment text-success"></span><a href="#">Comments</a>--%>
+                                            <%--<span class="badge">42</span>--%>
+                                        <%--</td>--%>
+                                    <%--</tr>--%>
                                 </table>
                             </div>
                         </div>
@@ -135,31 +115,61 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-th">
-                            </span>Modules</a>
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-file">
+                            </span> New Document</a>
                             </h4>
                         </div>
                         <div id="collapseTwo" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <table class="table">
+                                    <%--<tr>--%>
+                                        <%--<td>--%>
+                                            <%--<a href="http://www.jquery2dotnet.com">Orders</a> <span class="label label-success">$ 320</span>--%>
+                                        <%--</td>--%>
+                                    <%--</tr>--%>
                                     <tr>
                                         <td>
-                                            <a href="http://www.jquery2dotnet.com">Orders</a> <span class="label label-success">$ 320</span>
+                                           <a href="#">Order</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="http://www.jquery2dotnet.com">Invoices</a>
+                                            <a href="#">Invoice</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="http://www.jquery2dotnet.com">Shipments</a>
+                                            <a href="#">Desadv</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="http://www.jquery2dotnet.com">Tex</a>
+                                            <a href="#">Recadv</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="#">Retann</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="#">Ordrsp</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="#">Invrpt</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                           <a href="#">Invrpt</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="#">Hanmov</a>
                                         </td>
                                     </tr>
                                 </table>
@@ -169,8 +179,8 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="glyphicon glyphicon-user">
-                            </span>Account</a>
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="glyphicon glyphicon-book">
+                            </span> Catalogs</a>
                             </h4>
                         </div>
                         <div id="collapseThree" class="panel-collapse collapse">
@@ -178,25 +188,40 @@
                                 <table class="table">
                                     <tr>
                                         <td>
-                                            <a href="http://www.jquery2dotnet.com">Change Password</a>
+                                            <a href="#">Products</a>
+                                        </td>
+                                    </tr>
+                                    <%--<tr>--%>
+                                        <%--<td>--%>
+                                            <%--<a href="#">Notifications</a> <span class="label label-info">5</span>--%>
+                                        <%--</td>--%>
+                                    <%--</tr>--%>
+                                    <tr>
+                                        <td>
+                                            <a href="#">Locations</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="http://www.jquery2dotnet.com">Notifications</a> <span class="label label-info">5</span>
+                                            <a href="#">Create catalog</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="http://www.jquery2dotnet.com">Import/Export</a>
+                                            <a href="#">Create catalog</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <span class="glyphicon glyphicon-trash text-danger"></span><a href="http://www.jquery2dotnet.com" class="text-danger">
-                                            Delete Account</a>
+                                            <a href="#">Create sync</a>
                                         </td>
                                     </tr>
+                                    <%--<tr>--%>
+                                        <%--<td>--%>
+                                            <%--<span class="glyphicon glyphicon-trash text-danger"></span><a href="#" class="text-danger">--%>
+                                            <%--Delete Account</a>--%>
+                                        <%--</td>--%>
+                                    <%--</tr>--%>
                                 </table>
                             </div>
                         </div>
@@ -204,8 +229,8 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="glyphicon glyphicon-file">
-                            </span>Reports</a>
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="glyphicon glyphicon-equalizer">
+                            </span> Partners</a>
                             </h4>
                         </div>
                         <div id="collapseFour" class="panel-collapse collapse">
@@ -213,24 +238,92 @@
                                 <table class="table">
                                     <tr>
                                         <td>
-                                            <span class="glyphicon glyphicon-usd"></span><a href="http://www.jquery2dotnet.com">Sales</a>
+                                            <a href="#">Partner filter</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <span class="glyphicon glyphicon-user"></span><a href="http://www.jquery2dotnet.com">Customers</a>
+                                            <a href="#">Invite partner</a>
+                                        </td>
+                                    </tr>
+                                    <%--<tr>--%>
+                                        <%--<td>--%>
+                                            <%--<span class="glyphicon glyphicon-tasks"></span><a href="">Products</a>--%>
+                                        <%--</td>--%>
+                                    <%--</tr>--%>
+                                    <%--<tr>--%>
+                                        <%--<td>--%>
+                                            <%--<span class="glyphicon glyphicon-shopping-cart"></span><a href="">Shopping Cart</a>--%>
+                                        <%--</td>--%>
+                                    <%--</tr>--%>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive"><span class="glyphicon glyphicon-user">
+                            </span> Users</a>
+                            </h4>
+                        </div>
+                        <div id="collapseFive" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <table class="table">
+                                    <tr>
+                                        <td>
+                                            <a href="#">Users filter</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <span class="glyphicon glyphicon-tasks"></span><a href="http://www.jquery2dotnet.com">Products</a>
+                                            <a href="#">Create user</a>
+                                        </td>
+                                    </tr>
+                                    <%--<tr>--%>
+                                        <%--<td>--%>
+                                            <%--<span class="glyphicon glyphicon-tasks"></span><a href="">Products</a>--%>
+                                        <%--</td>--%>
+                                    <%--</tr>--%>
+                                    <%--<tr>--%>
+                                        <%--<td>--%>
+                                            <%--<span class="glyphicon glyphicon-shopping-cart"></span><a href="">Shopping Cart</a>--%>
+                                        <%--</td>--%>
+                                    <%--</tr>--%>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix"><span class="glyphicon glyphicon-save-file">
+                            </span> Reports</a>
+                            </h4>
+                        </div>
+                        <div id="collapseSix" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <table class="table">
+                                    <tr>
+                                        <td>
+                                            <a href="#">Reports filter</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <span class="glyphicon glyphicon-shopping-cart"></span><a href="http://www.jquery2dotnet.com">Shopping Cart</a>
+                                            <a href="#">Create report</a>
                                         </td>
                                     </tr>
+                                    <%--<tr>--%>
+                                        <%--<td>--%>
+                                            <%--<span class="glyphicon glyphicon-tasks"></span><a href="">Products</a>--%>
+                                        <%--</td>--%>
+                                    <%--</tr>--%>
+                                    <%--<tr>--%>
+                                        <%--<td>--%>
+                                            <%--<span class="glyphicon glyphicon-shopping-cart"></span><a href="">Shopping Cart</a>--%>
+                                        <%--</td>--%>
+                                    <%--</tr>--%>
                                 </table>
                             </div>
                         </div>

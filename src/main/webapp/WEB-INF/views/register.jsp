@@ -12,7 +12,7 @@
     <meta name="author" content="">
     <link rel="icon" href="${pageContext.request.contextPath}/stat/images/favicon.ico">
 
-    <title>Starter Template for Bootstrap</title>
+    <title>Proq</title>
 
     <!-- Bootstrap core CSS -->
     <link href="${pageContext.request.contextPath}/stat/css/bootstrap.min.css" rel="stylesheet">
@@ -33,7 +33,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
