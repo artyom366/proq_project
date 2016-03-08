@@ -50,8 +50,6 @@ public class MainController {
         List<Organization> userOrganizations = organizationService.findAllUsersByUsers(user);
         if (userOrganizations == null) {
             //todo error
-        } else {
-            userOrganizations.remove(userDefaultOrganization);
         }
 
         localeResolver.setLocale(request, response, new Locale(user.getUserSettings().getLocale()));

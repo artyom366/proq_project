@@ -22,7 +22,7 @@
 
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
+    <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
@@ -49,44 +49,209 @@
                     </ul>
                 </li>
 
-                <c:choose>
-                    <c:when test="${fn:length(allorganizations) gt 0}">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><c:out value="${defaultorganization} "/><span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <c:forEach items="${allorganizations}" var="organization">
-                                    <li><a href="#">organization.name</a></li>
-                                </c:forEach>
-                            </ul>
-                        </li>
-                    </c:when>
-                    <c:otherwise>
-                        <p class="navbar-text"><c:out value="${defaultorganization} "/></p
-                    </c:otherwise>
-                </c:choose>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><c:out value="${defaultorganization} "/><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <c:forEach items="${allorganizations}" var="organization">
+                            <li><a href="#">${organization.name}</a></li>
+                        </c:forEach>
+                    </ul>
+                </li>
 
                 <li><a href="?lang=en">EN</a></li>
                 <li><a href="?lang=lv">LV</a></li>
                 <li><a href="?lang=ru">RU</a></li>
             </ul>
 
-
-            <%--<ul class="nav navbar-nav navbar-right">--%>
-            <%--<li><spring:message code="hello"/>, <c:out value="${username}"/></li>--%>
-            <%--<li><c:out value="${company}"/></li>--%>
-            <%--</ul>--%>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
 
-<!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
     <div class="container">
-        <h2>Main</h2>
     </div>
 </div>
 
-<%--<H1><spring:message code="hello"/>, <c:out value="${username}"/></H1>--%>
+<div class="container-fluid">
+    <div class="row">
+        <%--<div class="col-sm-3 col-md-2 sidebar">--%>
+            <%--<ul class="nav nav-sidebar">--%>
+                <%--<li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>--%>
+                <%--<li><a href="#">Documents</a></li>--%>
+                <%--<li><a href="#">Analytics</a></li>--%>
+                <%--<li><a href="#">Export</a></li>--%>
+            <%--</ul>--%>
+            <%--<ul class="nav nav-sidebar">--%>
+                <%--<li><a href="">Nav item</a></li>--%>
+                <%--<li><a href="">Nav item again</a></li>--%>
+                <%--<li><a href="">One more nav</a></li>--%>
+                <%--<li><a href="">Another nav item</a></li>--%>
+                <%--<li><a href="">More navigation</a></li>--%>
+            <%--</ul>--%>
+            <%--<ul class="nav nav-sidebar">--%>
+                <%--<li><a href="">Nav item again</a></li>--%>
+                <%--<li><a href="">One more nav</a></li>--%>
+                <%--<li><a href="">Another nav item</a></li>--%>
+            <%--</ul>--%>
+        <%--</div>--%>
+
+            <div class="col-sm-3 col-md-2">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-folder-close">
+                            </span>Content</a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <table class="table">
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-pencil text-primary"></span><a href="http://www.jquery2dotnet.com">Articles</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-flash text-success"></span><a href="http://www.jquery2dotnet.com">News</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-file text-info"></span><a href="http://www.jquery2dotnet.com">Newsletters</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-comment text-success"></span><a href="http://www.jquery2dotnet.com">Comments</a>
+                                            <span class="badge">42</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-th">
+                            </span>Modules</a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <table class="table">
+                                    <tr>
+                                        <td>
+                                            <a href="http://www.jquery2dotnet.com">Orders</a> <span class="label label-success">$ 320</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="http://www.jquery2dotnet.com">Invoices</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="http://www.jquery2dotnet.com">Shipments</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="http://www.jquery2dotnet.com">Tex</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="glyphicon glyphicon-user">
+                            </span>Account</a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <table class="table">
+                                    <tr>
+                                        <td>
+                                            <a href="http://www.jquery2dotnet.com">Change Password</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="http://www.jquery2dotnet.com">Notifications</a> <span class="label label-info">5</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="http://www.jquery2dotnet.com">Import/Export</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-trash text-danger"></span><a href="http://www.jquery2dotnet.com" class="text-danger">
+                                            Delete Account</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="glyphicon glyphicon-file">
+                            </span>Reports</a>
+                            </h4>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <table class="table">
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-usd"></span><a href="http://www.jquery2dotnet.com">Sales</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-user"></span><a href="http://www.jquery2dotnet.com">Customers</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-tasks"></span><a href="http://www.jquery2dotnet.com">Products</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-shopping-cart"></span><a href="http://www.jquery2dotnet.com">Shopping Cart</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-9  col-md-10  main">
+                <h1 class="page-header">Dashboard</h1>
+            </div>
+
+            <div class="col-sm-9 col-md-10 main">
+                <div class="well">
+                    <h1>
+                        Accordion Menu With Icon</h1>
+                    Admin Dashboard Accordion Menu
+                </div>
+            </div>
+
+    </div>
+</div>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
